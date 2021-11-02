@@ -46,6 +46,15 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
 }
 
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
+    // Lifetime Annotation Syntax
+    // &i32        // a reference
+    // &'a i32     // a reference with an explicit lifetime
+    // &'a mut i32 // a mutable reference with an explicit lifetime
+    // The compiler uses three rules to figure out what lifetimes references have when there aren’t explicit annotations.
+    // The first rule is that each parameter that is a reference gets its own lifetime parameter.
+    // The second rule is if there is exactly one input lifetime parameter, that lifetime is assigned to all output lifetime parameters: fn foo<'a>(x: &'a i32) -> &'a i32.
+    // The third rule is if there are multiple input lifetime parameters, but one of them is &self or &mut self because this is a method, the lifetime of self is assigned to all output lifetime parameters.
+
     let mut results = Vec::new();
 
     for line in contents.lines() {
