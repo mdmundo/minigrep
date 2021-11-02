@@ -18,6 +18,7 @@ fn main() {
 
     if let Err(e) = minigrep::run(config) {
         eprintln!("Application error: {}", e);
+        // Writing error messages to standard error instead of standard output using eprintln!
 
         process::exit(1);
     }
