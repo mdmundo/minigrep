@@ -1,4 +1,5 @@
 use std::{env, error::Error, fs};
+// Simultaneously binding a list of paths with a common prefix, using the glob-like brace syntax
 
 pub struct Config {
     pub query: String,
