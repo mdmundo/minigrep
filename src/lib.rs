@@ -34,6 +34,8 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     // Expressions implicitly return the unit value if they don’t return any other value.
 
     let contents = fs::read_to_string(config.filename)?;
+    // A Shortcut for Propagating Errors: the ? Operator
+    // Rather than panic! on an error, ? will return the error value from the current function for the caller to handle.
 
     let results = if config.case_sensitive {
         search(&config.query, &contents)
