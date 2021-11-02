@@ -9,6 +9,7 @@ use minigrep::Config;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
+    // collect: Transforms an iterator into a collection.
 
     let config = Config::new(&args).unwrap_or_else(|err| {
         eprintln!("Problem parsing arguments: {}", err);
@@ -20,4 +21,6 @@ fn main() {
 
         process::exit(1);
     }
+    // Why use if let rather than unwrap_or_else?
+    // Because run returns () in the success case, we only care about detecting an error, so we don’t need unwrap_or_else to return the unwrapped value because it would only be ().
 }
