@@ -30,6 +30,9 @@ impl Config {
 }
 
 pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
+    // The tuple without any values, (), is a special type that has only one value, also written (). The type is called the unit type and the value is called the unit value.
+    // Expressions implicitly return the unit value if they don’t return any other value.
+
     let contents = fs::read_to_string(config.filename)?;
 
     let results = if config.case_sensitive {
